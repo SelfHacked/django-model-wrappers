@@ -14,53 +14,53 @@ class ImmutableDict(_typing.Mapping[_KT, _VT_co]):
         self.__dict = self.DICT_TYPE(*args, **kwargs)
 
     @cached_property
-    def __repr(self):
+    def _repr(self):
         return repr(self.__dict)
 
     def __repr__(self):
-        return self.__repr
+        return self._repr
 
     @cached_property
-    def __str(self):
+    def _str(self):
         return str(self.__dict)
 
     def __str__(self):
-        return self.__str
+        return self._str
 
     @cached_property
-    def __items(self):
+    def _items(self):
         return self.__dict.items()
 
     def items(self):
-        return self.__items
+        return self._items
 
     @cached_property
-    def __keys(self):
+    def _keys(self):
         return self.__dict.keys()
 
     def keys(self):
-        return self.__keys
+        return self._keys
 
     @cached_property
-    def __values(self):
+    def _values(self):
         return self.__dict.values()
 
     def values(self):
-        return self.__values
+        return self._values
 
     @cached_property
-    def __len(self):
+    def _len(self):
         return len(self.__dict)
 
     def __len__(self) -> int:
-        return self.__len
+        return self._len
 
     @cached_property
-    def __hash(self):
-        return hash(tuple(self.__items))
+    def _hash(self):
+        return hash(tuple(self._items))
 
     def __hash__(self):
-        return self.__hash
+        return self._hash
 
     def __contains__(self, k: _KT):
         return k in self.__dict
