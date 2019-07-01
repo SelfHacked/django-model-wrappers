@@ -31,12 +31,14 @@ class ModelFieldFinders(object):
         return self.__finders[name]
 
     def get(self, **kwargs) -> 'FieldWrapper':
+        kwargs = {
+            k: v
+            for k, v in kwargs.items()
+            if v is not None
+        }
         result = None
 
         for name, val in kwargs.items():
-            if val is None:
-                continue
-
             if result is None:
                 result = self[name][val]
                 continue

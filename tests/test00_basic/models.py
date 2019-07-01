@@ -1,3 +1,10 @@
 from django.db import models
 
-# Create your models here.
+
+class A(models.Model):
+    primary_key = models.IntegerField(primary_key=True)
+    x = models.IntegerField(name='y', db_column='z')
+
+
+class B(models.Model):
+    pass
