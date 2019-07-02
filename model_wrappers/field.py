@@ -59,9 +59,9 @@ class FieldWrapper(object):
     def is_fk(self) -> bool:
         return isinstance(self.raw, _models.ForeignKey)
 
-    @property
-    def col(self) -> _Col:
-        return _Col(self.model.table_name, self.raw)
+    def col(self, alias=None) -> _Col:
+        alias = alias or self.model.table_name
+        return _Col(alias, self.raw)
 
 
 from .model import ModelWrapper
