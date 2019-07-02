@@ -4,14 +4,16 @@ from model_wrappers import __version__
 
 extra_test = [
     'pytest>=4',
-    'pytest-runner>=4',
     'pytest-cov>=2',
     'pytest-django>=3',
     'psycopg2',
 ]
-extra_dev = extra_test
+extra_dev = [
+    *extra_test,
+]
 
-extra_ci = extra_test + [
+extra_ci = [
+    *extra_test,
     'python-coveralls',
 ]
 
