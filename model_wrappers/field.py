@@ -61,7 +61,7 @@ class FieldWrapper(object):
 
     def col(self, alias=None) -> _Col:
         alias = alias or self.model.table_name
-        return _Col(alias, self.raw)
+        return self.raw.get_col(alias)
 
 
 from .model import ModelWrapper
